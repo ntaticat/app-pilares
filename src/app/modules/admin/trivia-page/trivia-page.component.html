@@ -1,0 +1,54 @@
+<div class="admin-trivia-container">
+  <h2>Agregar Nueva Pregunta de Trivia</h2>
+  <form [formGroup]="triviaForm" (ngSubmit)="submitQuestion()">
+    <div class="input-group">
+      <label for="questionText">Pregunta</label>
+      <input
+        type="text"
+        id="questionText"
+        formControlName="questionText"
+        placeholder="Escribe la pregunta aquí"
+      />
+    </div>
+
+    <div formArrayName="options">
+      <div
+        *ngFor="let option of options.controls; let i = index"
+        [formGroupName]="i"
+        class="option-group"
+      >
+        <label for="option-{{ i }}">Opción {{ i + 1 }}</label>
+        <input
+          type="text"
+          id="option-{{ i }}"
+          formControlName="text"
+          placeholder="Escribe la opción aquí"
+        />
+        <label class="correct-label">
+          <input type="checkbox" formControlName="isCorrect" /> Correcta
+        </label>
+        <button
+          type="button"
+          class="remove-option-button"
+          (click)="removeOption(i)"
+          *ngIf="options.length > 2"
+        >
+          Eliminar
+        </button>
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button type="button" class="add-option-button" (click)="addOption()">
+        Agregar Opción
+      </button>
+      <button
+        type="submit"
+        class="submit-button"
+        [disabled]="!triviaForm.valid || options.length < 2"
+      >
+        Guardar Pregunta
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,98 @@
+.admin-trivia-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.input-group,
+.option-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.correct-label {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.correct-label input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.remove-option-button {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.remove-option-button:hover {
+  background-color: #d9363e;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-option-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-option-button:hover {
+  background-color: #0056b3;
+}
+
+.submit-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button:hover {
+  background-color: #218838;
+}
+
+.submit-button:disabled {
+  background-color: #c3e6cb;
+  cursor: not-allowed;
+}

@@ -1,0 +1,25 @@
+.learning-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.content {
+  background-color: #eeeeee;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+a {
+  padding: 10px 20px;
+  background-color: #77dd77;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+a:hover {
+  background-color: #66cc66;
+}

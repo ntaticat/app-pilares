@@ -1,0 +1,17 @@
+<h2>Lista de Conocimientos</h2>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Título</th>
+    <th>Acciones</th>
+  </tr>
+  <tr *ngFor="let challenge of challenges">
+    <td>{{ challenge.id }}</td>
+    <td>{{ challenge.title }}</td>
+    <td>
+      <button (click)="editChallenge(challenge.id)">Editar</button>
+      <button (click)="deleteChallenge(challenge.id)">Eliminar</button>
+    </td>
+  </tr>
+</table>
+<button routerLink="/admin/challenge-create">Agregar Nuevo Conocimiento</button>

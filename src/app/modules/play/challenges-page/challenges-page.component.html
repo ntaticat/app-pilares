@@ -1,0 +1,8 @@
+<div class="challenges-container">
+  <h2>Selecciona un Reto</h2>
+  <ul class="challenges-list">
+    <li *ngFor="let reto of retos">
+      <a [routerLink]="[reto.numero]">Reto {{ reto.numero }}</a>
+    </li>
+  </ul>
+</div>

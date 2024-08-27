@@ -1,0 +1,22 @@
+<h2>{{ isEdit ? "Editar Conocimiento" : "Crear Nuevo Conocimiento" }}</h2>
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Título</label>
+    <input
+      type="text"
+      id="title"
+      [(ngModel)]="challenge.title"
+      name="title"
+      required
+    />
+  </div>
+  <div>
+    <label for="description">Descripción</label>
+    <quill-editor
+      [(ngModel)]="challenge.description"
+      [modules]="editorConfig"
+      name="description"
+    ></quill-editor>
+  </div>
+  <button type="submit">{{ isEdit ? "Actualizar" : "Crear" }}</button>
+</form>

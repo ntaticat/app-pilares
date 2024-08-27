@@ -1,0 +1,27 @@
+.challenges-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.challenges-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.challenges-list li {
+  margin: 10px 0;
+}
+
+a {
+  padding: 10px 20px;
+  background-color: #ffcc5c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+a:hover {
+  background-color: #ffaa33;
+}

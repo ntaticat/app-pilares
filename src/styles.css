@@ -1,1 +1,192 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/quill/dist/quill.core.css";
+@import "../node_modules/quill/dist/quill.snow.css";
+
+/* 1. Reset básico de estilos por defecto en navegadores */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* 2. Estilos base para bloques HTML5 */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1.5;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 3. Asegura que todos los elementos usen el mismo modelo de caja */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 4. Ajustes de tipografía para mejor legibilidad */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+}
+
+/* 5. Asegura que imágenes y medios sean responsive */
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 6. Remueve subrayado por defecto de enlaces y asegura accesibilidad */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 7. Restablece botones y otros elementos interactivos */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+/* 8. Estilo básico para botones */
+button {
+  cursor: pointer;
+}
+
+/* 9. Elimina borde azul en enlaces y botones en dispositivos con pantalla táctil */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
