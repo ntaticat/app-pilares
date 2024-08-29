@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
+import jwt_decode, { jwtDecode } from 'jwt-decode';
 import { environment } from '../../../environments/environment';
 
 @Injectable({
@@ -8,8 +9,15 @@ import { environment } from '../../../environments/environment';
 })
 export class AuthService {
   private apiUrl = environment.apiUrl;
+  private isAuthenticatedSubject = new BehaviorSubject<boolean>(
+    this.hasToken()
+  );
+  private phoneNumber: string | null = null;
+  private roles: string[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.decodeToken();
+  }
 
   // Método para registrar un nuevo participante
   register(
@@ -47,9 +55,56 @@ export class AuthService {
   }
 
   // Método para obtener el perfil del participante (requiere autenticación)
-  getProfile(token: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/participantes/profile`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+  getProfile(): Observable<any> {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      return this.http.get(`${this.apiUrl}/participantes/profile`, { headers });
+    }
+    return throwError(() => new Error('No token available'));
+  }
+
+  // Método para obtener el estado de autenticación
+  getAuthStatus(): Observable<boolean> {
+    return this.isAuthenticatedSubject.asObservable();
+  }
+
+  // Método para decodificar el token JWT y obtener el phoneNumber
+  private decodeToken(): any {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      return null;
+    }
+
+    const decodedToken: any = jwtDecode(token);
+    this.phoneNumber = decodedToken.phoneNumber || null;
+    this.roles = decodedToken.roles || [];
+
+    return decodedToken;
+  }
+  hasRole(role: string): boolean {
+    const userData = this.decodeToken();
+    return userData.role ?? 'Guest';
+  }
+
+  // Método para manejar el login y almacenamiento del token
+  loginUser(token: string): void {
+    localStorage.setItem('token', token);
+    this.decodeToken();
+    this.isAuthenticatedSubject.next(true);
+  }
+
+  // Método para manejar el logout y limpieza del almacenamiento local
+  logout(): void {
+    this.phoneNumber = null;
+    this.roles = [];
+    localStorage.removeItem('token');
+    this.isAuthenticatedSubject.next(false);
+  }
+
+  // Método para verificar si hay un token almacenado
+  private hasToken(): boolean {
+    return !!localStorage.getItem('token');
   }
 }

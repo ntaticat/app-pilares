@@ -1,0 +1,26 @@
+<div class="challenge-form-container">
+  <h2>Registrar reto</h2>
+  <form (ngSubmit)="onSubmit()" class="challenge-form">
+    <div class="form-group">
+      <label for="title" class="form-label">Título</label>
+      <input
+        type="text"
+        id="title"
+        [(ngModel)]="challenge.title"
+        name="title"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="description" class="form-label">Descripción</label>
+      <quill-editor
+        [(ngModel)]="challenge.content"
+        [modules]="editorConfig"
+        name="description"
+        class="quill-editor"
+      ></quill-editor>
+    </div>
+    <button type="submit" class="btn-submit">Crear</button>
+  </form>
+</div>

@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import {
+  ChallengesService,
+  IChallenge,
+} from '../../../data/services/challenges.service';
 
 @Component({
   selector: 'app-challenges-page',
@@ -6,15 +10,22 @@ import { Component } from '@angular/core';
   styleUrl: './challenges-page.component.css',
 })
 export class ChallengesPageComponent {
-  challenges = [
-    {
-      id: '',
-      title: '',
-      content: '',
-    },
-  ];
+  challenges: IChallenge[] = [];
 
-  editChallenge(challengeId: string) {}
+  constructor(private challengesService: ChallengesService) {}
 
-  deleteChallenge(challengeId: string) {}
+  ngOnInit(): void {
+    this.loadChallenges();
+  }
+
+  loadChallenges(): void {
+    this.challengesService.getAllChallenges().subscribe({
+      next: (data: IChallenge[]) => {
+        this.challenges = data;
+      },
+      error: (error) => {
+        console.error('Error al cargar los retos', error);
+      },
+    });
+  }
 }

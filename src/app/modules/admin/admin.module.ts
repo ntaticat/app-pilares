@@ -8,12 +8,14 @@ import { ChallengesPageComponent } from './challenges-page/challenges-page.compo
 import { ChallengePageComponent } from './challenge-page/challenge-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TriviaPageComponent } from './trivia-page/trivia-page.component';
+import { ChallengeNewPageComponent } from './challenge-new-page/challenge-new-page.component';
 
 @NgModule({
   declarations: [
     ChallengesPageComponent,
     ChallengePageComponent,
     TriviaPageComponent,
+    ChallengeNewPageComponent,
   ],
   imports: [
     CommonModule,

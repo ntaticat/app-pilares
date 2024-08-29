@@ -1,0 +1,49 @@
+.app-header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo a {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-status {
+  display: flex;
+  align-items: center;
+}
+
+.auth-status span {
+  margin-right: 10px;
+}
+
+.auth-status a {
+  color: white;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.auth-status button {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.auth-status button:hover {
+  background-color: #d9363e;
+}

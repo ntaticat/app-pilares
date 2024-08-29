@@ -23,7 +23,7 @@ export class LoginPageComponent {
       .subscribe({
         next: (response) => {
           localStorage.setItem('token', response.access_token); // Guardar el token en localStorage
-          this.router.navigate(['/play']); // Redirigir al perfil u otra página
+          this.router.navigate(['/']); // Redirigir al perfil u otra página
         },
         error: (error) => {
           this.errorMessage = error.message;

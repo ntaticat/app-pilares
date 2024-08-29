@@ -1,1 +1,18 @@
-<p>main-page works!</p>
+<app-header></app-header>
+<div class="home-container">
+  <header class="home-header">
+    <h1>Bienvenido a PromoPILARES</h1>
+    <p>Explora nuestros minijuegos y desafíos.</p>
+  </header>
+
+  <section class="features-section">
+    <div class="feature-card" *ngFor="let feature of features">
+      <img [src]="feature.icon" alt="{{ feature.title }} icon" />
+      <h2>{{ feature.title }}</h2>
+      <p>{{ feature.description }}</p>
+      <button (click)="navigateToFeature(feature.link)">
+        Ir a {{ feature.title }}
+      </button>
+    </div>
+  </section>
+</div>

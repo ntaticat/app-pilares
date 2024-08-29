@@ -1,0 +1,18 @@
+<header class="app-header">
+  <nav>
+    <div class="logo">
+      <a routerLink="/">PromoPILARES</a>
+    </div>
+    <div class="auth-status">
+      <ng-container *ngIf="isAuthenticated; else notAuthenticated">
+        <span>Bienvenido, {{ username }}</span>
+        <button (click)="logout()">Cerrar sesión</button>
+      </ng-container>
+      <ng-template #notAuthenticated>
+        <span>¿Nuevo aquí?</span>
+        <a [routerLink]="['auth', 'register']">Regístrate</a> o
+        <a [routerLink]="['auth', 'login']">Inicia sesión</a>
+      </ng-template>
+    </div>
+  </nav>
+</header>

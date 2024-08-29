@@ -1,17 +1,13 @@
-<h2>Lista de Conocimientos</h2>
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Título</th>
-    <th>Acciones</th>
-  </tr>
-  <tr *ngFor="let challenge of challenges">
-    <td>{{ challenge.id }}</td>
-    <td>{{ challenge.title }}</td>
-    <td>
-      <button (click)="editChallenge(challenge.id)">Editar</button>
-      <button (click)="deleteChallenge(challenge.id)">Eliminar</button>
-    </td>
-  </tr>
-</table>
-<button routerLink="/admin/challenge-create">Agregar Nuevo Conocimiento</button>
+<div class="challenge-list-container">
+  <h2>Lista de Retos</h2>
+  <div *ngIf="challenges.length > 0; else noChallenges">
+    <div class="challenge-item" *ngFor="let challenge of challenges">
+      <h3>{{ challenge.title }}</h3>
+      <p [innerHTML]="challenge.content"></p>
+      <a [routerLink]="[challenge.id]" class="btn-detail">Ver detalles</a>
+    </div>
+  </div>
+  <ng-template #noChallenges>
+    <p>No hay retos disponibles en este momento.</p>
+  </ng-template>
+</div>
