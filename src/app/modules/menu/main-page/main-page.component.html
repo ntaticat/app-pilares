@@ -7,7 +7,12 @@
 
   <section class="features-section">
     <div class="feature-card" *ngFor="let feature of features">
-      <img [src]="feature.icon" alt="{{ feature.title }} icon" />
+      <img
+        [src]="
+          'https://cdn3.iconfinder.com/data/icons/iconic-1/32/play_alt-512.png'
+        "
+        alt="{{ feature.title }} icon"
+      />
       <h2>{{ feature.title }}</h2>
       <p>{{ feature.description }}</p>
       <button (click)="navigateToFeature(feature.link)">

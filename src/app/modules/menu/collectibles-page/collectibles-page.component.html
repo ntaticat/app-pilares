@@ -1,1 +1,26 @@
-<p>collectibles-page works!</p>
+<div class="collectibles-container">
+  <h2>Mis Coleccionables</h2>
+  <div class="collectibles-grid">
+    <div class="collectible-item" *ngFor="let collectible of collectibles">
+      <div class="collectible-image" *ngIf="collectible.unlocked; else locked">
+        <img [src]="collectible.imageUrl" [alt]="collectible.name" />
+      </div>
+      <ng-template #locked>
+        <div class="collectible-locked">
+          <span>?</span>
+        </div>
+      </ng-template>
+      <p>
+        {{
+          collectible.unlocked
+            ? collectible.name
+            : "Desbloquea este coleccionable"
+        }}
+      </p>
+    </div>
+  </div>
+  <p class="collectibles-info">
+    ¡Colecciona todos los coleccionables! Desbloquea 10 coleccionables de un
+    tipo para ganar un premio.
+  </p>
+</div>

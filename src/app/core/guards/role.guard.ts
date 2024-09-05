@@ -20,9 +20,9 @@ export class RoleGuard implements CanActivate {
   ): Observable<boolean> | Promise<boolean> | boolean {
     const requiredRole = route.data['role'] as string; // Rol requerido definido en la ruta
     console.log('requiredrole', requiredRole);
-    const hasRole = this.authService.hasRole(requiredRole);
+    const hasRole = this.authService.hasRole();
     console.log('hasrole', hasRole);
-    if (!hasRole) {
+    if (!hasRole || hasRole.role !== 'admin') {
       this.router.navigate(['/']); // Redirige a una página "No autorizado"
       return false;
     }

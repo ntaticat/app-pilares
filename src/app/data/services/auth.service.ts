@@ -4,6 +4,14 @@ import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
 import jwt_decode, { jwtDecode } from 'jwt-decode';
 import { environment } from '../../../environments/environment';
 
+export interface IToken {
+  phoneNumber: string;
+  sub: number;
+  role: string;
+  iat: number;
+  exp: number;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -70,22 +78,32 @@ export class AuthService {
   }
 
   // Método para decodificar el token JWT y obtener el phoneNumber
-  private decodeToken(): any {
+  private decodeToken(): IToken | null {
     const token = localStorage.getItem('token');
 
     if (!token) {
       return null;
     }
 
-    const decodedToken: any = jwtDecode(token);
-    this.phoneNumber = decodedToken.phoneNumber || null;
-    this.roles = decodedToken.roles || [];
+    const decodedToken: IToken = jwtDecode(token);
+
+    // const isExpired = this.isTokenExpired(decodedToken.exp);
+
+    // if (!isExpired) {
+    //   this.logout();
+    //   return null;
+    // }
 
     return decodedToken;
   }
-  hasRole(role: string): boolean {
+  hasRole(): IToken | null {
     const userData = this.decodeToken();
-    return userData.role ?? 'Guest';
+    return userData;
+  }
+
+  private isTokenExpired(exp: number): boolean {
+    const now = Math.floor(new Date().getTime() / 1000);
+    return exp < now;
   }
 
   // Método para manejar el login y almacenamiento del token

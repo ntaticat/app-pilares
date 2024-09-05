@@ -7,10 +7,31 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.challenge-list-container h2 {
-  text-align: center;
-  color: #333;
+.challenge-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
+}
+
+.challenge-list-header h2 {
+  color: #333;
+  margin: 0;
+}
+
+.btn-create {
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-create:hover {
+  background-color: #218838;
 }
 
 .challenge-item {
@@ -19,6 +40,11 @@
   margin-bottom: 15px;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.challenge-item:hover {
+  transform: translateY(-2px);
 }
 
 .challenge-item h3 {
@@ -33,16 +59,33 @@
   margin-bottom: 10px;
 }
 
-.btn-detail {
+.challenge-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-detail,
+.btn-minigame {
   display: inline-block;
   padding: 8px 12px;
-  background-color: #007bff;
-  color: white;
   border-radius: 4px;
   text-decoration: none;
+  color: white;
   transition: background-color 0.3s ease;
+}
+
+.btn-detail {
+  background-color: #007bff;
 }
 
 .btn-detail:hover {
   background-color: #0056b3;
+}
+
+.btn-minigame {
+  background-color: #ffc107;
+}
+
+.btn-minigame:hover {
+  background-color: #e0a800;
 }

@@ -1,0 +1,58 @@
+<div class="collectible-admin-container">
+  <h2>Administración de Coleccionables</h2>
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Buscar coleccionables..."
+      [(ngModel)]="searchTerm"
+      (input)="onSearch()"
+      class="form-control search-input"
+    />
+    <button class="btn-create" [routerLink]="['new']">
+      Añadir Nuevo Coleccionable
+    </button>
+  </div>
+
+  <div
+    class="collectible-list"
+    *ngIf="filteredCollectibles.length > 0; else noResults"
+  >
+    <div
+      class="collectible-card"
+      *ngFor="let collectible of filteredCollectibles"
+    >
+      <div class="collectible-image">
+        <img [src]="collectible.imageUrl" [alt]="collectible.name" />
+      </div>
+      <div class="collectible-details">
+        <h3>{{ collectible.name }}</h3>
+        <p
+          [ngClass]="{
+            unlocked: collectible.unlocked,
+            locked: !collectible.unlocked
+          }"
+        >
+          {{ collectible.unlocked ? "Desbloqueado" : "Bloqueado" }}
+        </p>
+        <div class="collectible-actions">
+          <button
+            class="btn-edit"
+            [routerLink]="['/collectibles', collectible.id, 'edit']"
+          >
+            Editar
+          </button>
+          <button
+            class="btn-delete"
+            (click)="deleteCollectible(collectible.id || 0)"
+          >
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noResults>
+    <p>No se encontraron coleccionables.</p>
+  </ng-template>
+</div>

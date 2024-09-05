@@ -37,6 +37,7 @@ const routes: Routes = [
     path: 'loser',
     component: LoserPageComponent,
   },
+  { path: '**', pathMatch: 'full', redirectTo: '' },
 ];
 
 @NgModule({

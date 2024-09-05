@@ -1,0 +1,41 @@
+<div class="register-collectible-container">
+  <h2>Registrar Nuevo Coleccionable</h2>
+  <form (ngSubmit)="onSubmit()" class="register-collectible-form">
+    <div class="form-group">
+      <label for="name">Nombre del Coleccionable</label>
+      <input
+        type="text"
+        id="name"
+        [(ngModel)]="newCollectible.name"
+        name="name"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="image">Imagen del Coleccionable</label>
+      <input
+        type="file"
+        id="image"
+        (change)="onImageSelected($event)"
+        name="image"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="unlocked">Estado del Coleccionable</label>
+      <select
+        id="unlocked"
+        [(ngModel)]="newCollectible.unlocked"
+        name="unlocked"
+        class="form-control"
+        required
+      >
+        <option [value]="true">Desbloqueado</option>
+        <option [value]="false">Bloqueado</option>
+      </select>
+    </div>
+    <button type="submit" class="btn-submit">Registrar Coleccionable</button>
+  </form>
+</div>

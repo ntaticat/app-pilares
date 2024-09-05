@@ -1,0 +1,85 @@
+<div class="admin-page-container">
+  <header class="admin-header">
+    <div class="header-logo">Comipy</div>
+    <div class="header-user-info">
+      <img
+        src="ruta/a/tu/icono-de-usuario.png"
+        alt="Usuario"
+        class="user-avatar"
+      />
+      <span>Nombre Completo del Usuario</span>
+    </div>
+  </header>
+
+  <main class="admin-content">
+    <section class="welcome-section">
+      <h1>Bienvenido a Comipy</h1>
+      <p>
+        Comipy es una aplicación diseñada para gestionar cursos, alumnos,
+        asistencias y actividades de difusión. Facilita la administración de
+        información y mejora la experiencia educativa.
+      </p>
+    </section>
+
+    <!-- Paneles de Estadísticas -->
+    <section class="stats-section">
+      <div class="stat-card">
+        <h3>100</h3>
+        <p>Participantes</p>
+      </div>
+      <div class="stat-card">
+        <h3>10</h3>
+        <p>Premios</p>
+      </div>
+      <div class="stat-card">
+        <h3>20</h3>
+        <p>Minijuegos</p>
+      </div>
+      <div class="stat-card">
+        <h3>50</h3>
+        <p>Coleccionables</p>
+      </div>
+    </section>
+
+    <!-- Acciones rápidas -->
+    <section class="quick-actions">
+      <h2>Acciones Rápidas</h2>
+      <div class="actions-grid">
+        <button class="btn-action" [routerLink]="['challenges']">
+          Gestionar Retos
+        </button>
+        <button class="btn-action" [routerLink]="['collectibles']">
+          Gestionar Coleccionables
+        </button>
+        <button class="btn-action" [routerLink]="['prizes']">
+          Gestionar Premios
+        </button>
+        <button class="btn-action" [routerLink]="['minigames']">
+          Gestionar Minijuegos
+        </button>
+        <button class="btn-action" [routerLink]="['participants']">
+          Gestionar Participantes
+        </button>
+        <button class="btn-action" href="#">Gestionar Administradores</button>
+      </div>
+    </section>
+
+    <!-- Estadísticas y Gráficas -->
+    <section class="charts-section">
+      <h2>Estadísticas Detalladas</h2>
+      <div class="charts-grid">
+        <!-- Incluir gráficos como parte de las estadísticas -->
+        <div class="chart-container">
+          <h3>Participantes por Categoría</h3>
+          <!-- Aquí insertarías un gráfico con una librería como Chart.js -->
+          <canvas id="participantsChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <h3>Minijuegos Más Populares</h3>
+          <!-- Otro gráfico -->
+          <canvas id="minigamesChart"></canvas>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>

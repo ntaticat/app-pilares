@@ -6,6 +6,7 @@
     <div class="auth-status">
       <ng-container *ngIf="isAuthenticated; else notAuthenticated">
         <span>Bienvenido, {{ username }}</span>
+        <a *ngIf="userData.role === 'admin'" [routerLink]="['admin']">Admin</a>
         <button (click)="logout()">Cerrar sesión</button>
       </ng-container>
       <ng-template #notAuthenticated>

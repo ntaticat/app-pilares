@@ -1,12 +1,24 @@
 <div class="challenge-list-container">
-  <h2>Lista de Retos</h2>
+  <div class="challenge-list-header">
+    <h2>Lista de Retos</h2>
+    <button class="btn-create" [routerLink]="['new']">Crear Nuevo Reto</button>
+  </div>
+
   <div *ngIf="challenges.length > 0; else noChallenges">
     <div class="challenge-item" *ngFor="let challenge of challenges">
       <h3>{{ challenge.title }}</h3>
       <p [innerHTML]="challenge.content"></p>
-      <a [routerLink]="[challenge.id]" class="btn-detail">Ver detalles</a>
+      <div class="challenge-actions">
+        <a [routerLink]="[challenge.id]" class="btn-detail">Ver detalles</a>
+        <a
+          [routerLink]="['..', 'minigames', 'trivia', 'new']"
+          class="btn-minigame"
+          >Añadir/Modificar Minijuego</a
+        >
+      </div>
     </div>
   </div>
+
   <ng-template #noChallenges>
     <p>No hay retos disponibles en este momento.</p>
   </ng-template>

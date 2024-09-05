@@ -1,0 +1,67 @@
+.collectibles-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.collectibles-container h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.collectibles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.collectible-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.collectible-item:hover {
+  transform: translateY(-2px);
+}
+
+.collectible-image img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.collectible-locked {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  background-color: #ddd;
+  border-radius: 50%;
+  font-size: 24px;
+  color: #888;
+}
+
+.collectible-item p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.collectibles-info {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #777;
+}
